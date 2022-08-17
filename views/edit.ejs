@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Add New Post</h1>
+            <h1>Edit Photo</h1>
 
           </div>
         </div>
@@ -20,16 +20,18 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form method="post" action="/photos" novalidate enctype="multipart/form-data">
+        <form method="post" action="/post/<%= photo._id %>?_method=PUT" novalidate enctype="multipart/form-data">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <input type="text" class="form-control" name="title" placeholder="title" required data-validation-required-message="Please enter your name.">
+              <input type="text" class="form-control" value="<%= photo.title %>" name="title" placeholder="title" required data-validation-required-message="Please enter your name.">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
-              <textarea rows="5" class="form-control" name="detail" placeholder="detail" required data-validation-required-message="Please enter a message."></textarea>
+              <textarea rows="5" class="form-control" name="detail" placeholder="detail" required data-validation-required-message="Please enter a message.">
+                <%= photo.detail %>
+              </textarea>
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -42,7 +44,7 @@
           </div>
           <br>
           <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Update</button>
         </form>
       </div>
     </div>

@@ -2,17 +2,22 @@
 <%- include('partials/_navigation') -%>
 
    <!-- Page Header -->
-   <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+   <header class="masthead" style="background-color: rgb(181, 251, 192);">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
         
           <div class="post-heading">
-            <img style="height:300px ; width: 600px;" src="https://static.wixstatic.com/media/026dae_3d9f365fa8314a12927fe86a439b3e99~mv2_d_3019_3673_s_4_2.jpg/v1/fill/w_415,h_505,fp_0.50_0.50,q_90,enc_auto/026dae_3d9f365fa8314a12927fe86a439b3e99~mv2_d_3019_3673_s_4_2.webp" alt="">
+            <img style="height:400px ; width: 800px;" src="<%= photo.image %>" alt="">
             <h1><%= photo.title %> </h1>
             <h2 class="subheading"><%= photo.detail.substring(0,150) %></h2>
            
+          </div>
+          <div class="form-group mb-0" style="display:flex; justify-content: center;">
+            <a href="/post/edit/<%= photo._id %>" type="submit" class="btn btn-primary rounded-0 d-block  mr-0 tm-btn-animate tm-btn-submit tm-icon-submit"><span>Update</span></a>
+            <a href="/post/<%= photo._id %>?_method=DELETE"
+               onclick="return confirm('Silmek istediğinizden emin misiniz ?')" type="submit" class="btn btn-danger rounded-0 d-block  mr-0 tm-btn-animate tm-btn-submit tm-icon-submit"><span>Delete</span></a>
           </div>
         </div>
       </div>
